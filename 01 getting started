@@ -1,0 +1,118 @@
+Start mongod
+> mongod
+
+
+
+Connecting to a mongod
+> mongo
+
+To show current db.
+> db
+
+To show all db
+
+show dbs
+
+
+Display Help 
+
+> help
+
+Lets create two documents J and K and insert them with the following sequence
+
+//examples of documents.
+j = { name : "mongo" }
+k = { x : 3 }
+
+A collection is a group of documents.
+
+to see a collection
+> show collections
+
+
+
+When quering a collection mongodb returns a cursor that contains the result of the query.
+
+all mongodb document has an id field with a unique value.
+
+Generating test data.
+
+for (var 1 = 1; i < 25; i++) db.testdata.insert( {x : i} ) 
+
+note that the find() returns a cursor. to see more documents type
+
+
+Inserting multiple data within a mongoshell function.
+
+function insertData (dbName, colName, num) {
+	var col = db.getSiblingDB.get(dbName).getCollection(colName);
+
+
+	for (var i = 1; i < num i++) {
+		col.insert( {x : i} );
+	};
+
+	print(col.count());
+};
+
+
+//using the function
+
+inserData("test", "testData", 400);
+
+
+A queried collection returns a cursor object that contains the result of the query.
+
+All the results of the query are not returned at once as mongodb tries to iterate over it.
+
+while(c.hasNext()) printJson(c.next());
+
+Using Array operations on cursor.
+var c  = db.testData.find();
+printjson(c[4]);
+
+
+Return a single document from the find data command.
+
+> db.testData.findone();
+
+db.testData.find().limit(3)
+s
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
